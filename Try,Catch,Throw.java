@@ -17,8 +17,4 @@ public class Main {
 	}
 
 }
-gcloud container clusters create security-demo-cluster833 \
-   --zone us-central1-c \
-   --machine-type n1-standard-4 \
-   --num-nodes 2 \
-   --enable-network-policy
+
