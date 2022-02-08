@@ -1,0 +1,57 @@
+package program1;
+import java.awt.*;
+import java.awt.event.*;
+
+public class MouseLab extends Frame implements MouseListener,MouseMotionListener{
+String txt="";
+public MouseLab() {
+addMouseListener(this);
+addMouseMotionListener(this);
+setSize(300,300);
+setVisible(true);
+addWindowListener (new WindowAdapter(){
+public void windowClosing(WindowEvent we) {
+System.exit(0);
+}
+});
+}
+public void mousePressed(MouseEvent e) {
+setBackground(Color.red);
+System.out.print("Mouse is pressed");
+}
+public void mouseReleased(MouseEvent e) {
+setBackground(Color.blue);
+System.out.print("Mouse is released");
+}
+public void mouseClicked(MouseEvent e) {
+setBackground(Color.cyan);
+System.out.print("Mouse is clicked");
+}
+public void mouseEntered(MouseEvent e) {
+setBackground(Color.yellow);
+System.out.print("Mouse is Entered");
+setTitle("mouse exited");
+}
+public void mouseExited(MouseEvent e) {
+setBackground(Color.green);
+System.out.print("Mouse is exited");
+setTitle("mouse exited");
+}
+public void mouseMoved(MouseEvent me) {
+txt="mouse is moved";
+setForeground(Color.white);
+Graphics g=getGraphics();
+g.setColor(Color.magenta);
+g.drawString(txt,me.getX(),me.getY());
+System.out.print("mouse moved\n");
+setTitle("mouse moved");
+}
+public void mouseDragged(MouseEvent me) {
+System.out.print("Mouse is dragged\n");
+Graphics g=getGraphics();
+g.fillOval(me.getX(),me.getY(),20,20);
+}
+public static void main(String[] args) {
+new MouseLab();
+}
+}
